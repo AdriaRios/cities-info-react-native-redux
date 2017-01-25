@@ -1,11 +1,19 @@
 import React from 'react'
-import {View, Text} from 'react-native';
+import {View, TextInput, Button} from 'react-native';
+
+import styles from '../styles';
 
 const AddCity = () => (
-    <View>
-      <Text>
-        Add City
-      </Text>
+    <View
+         style={styles.addCity.container}
+        >
+        <TextInput
+             style={styles.addCity.textInput}
+        />
+        <Button
+            title="Add City"
+            style={styles.addCity.button}
+        />
     </View>
 );
 

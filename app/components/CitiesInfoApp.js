@@ -9,7 +9,7 @@ import styles from '../styles';
 
 const CitiesInfoApp = () => (
   <View
-    style={styles.citiesList}
+    style={styles.appStyle}
   >
     <CityList />
     <AddCity />

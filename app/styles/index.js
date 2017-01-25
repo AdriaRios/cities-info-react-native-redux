@@ -1,7 +1,12 @@
 import {StyleSheet} from 'react-native';
-import citiesList from './citiesList'
+import appStyle from './appStyle';
+import citiesList from './citiesList';
+import addCity from './addCity'
 
-console.log(citiesList);
 const styles = StyleSheet.create({});
+
+styles.appStyle = appStyle;
+styles.addCity = addCity;
 styles.citiesList = citiesList;
+
 export default styles;
