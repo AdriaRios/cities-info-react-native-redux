@@ -4,7 +4,10 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers';
 
 import CitiesInfoApp from '../components/CitiesInfoApp';
-const store = createStore(reducer);
+const store = createStore(reducer, {
+    cities: ['TERRASSA', 'SABADELL', 'BARCELONA', 'ST JOAN DESPÍ', 'HOSPITALET',
+    'ST. QUIRZE', 'BARBERÁ DEL VALLES']
+});
 
 export default class App extends Component {
   render() {
