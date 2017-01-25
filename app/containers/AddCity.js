@@ -1,8 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import { addCity } from '../actions'
 
 import InputAndButton from '../components/InputAndButton';
 
-const AddCity = connect()(InputAndButton)
+const mapDispatchToProps =  (dispatch) => ({
+  onAddCity: (city) =>{
+      console.log('***City', city);
+      dispatch(addCity(city));
+  }
+})
 
-export default AddCity
+const AddCity = connect(null, mapDispatchToProps)(InputAndButton);
+
+export default AddCity;
