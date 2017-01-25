@@ -17,6 +17,7 @@ const InputAndButton = ({onAddCity, textValue="as"}) => (
             style={styles.addCity.button}
             onPress={() => {
                 onAddCity(cityInput._lastNativeText);
+                cityInput.clear();
             }}
         />
     </View>
