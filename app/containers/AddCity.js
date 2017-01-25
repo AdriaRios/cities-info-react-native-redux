@@ -1,20 +1,8 @@
 import React from 'react'
-import {View, TextInput, Button} from 'react-native';
+import { connect } from 'react-redux'
 
-import styles from '../styles';
+import InputAndButton from '../components/InputAndButton';
 
-const AddCity = () => (
-    <View
-         style={styles.addCity.container}
-        >
-        <TextInput
-             style={styles.addCity.textInput}
-        />
-        <Button
-            title="Add City"
-            style={styles.addCity.button}
-        />
-    </View>
-);
+const AddCity = connect()(InputAndButton)
 
 export default AddCity
