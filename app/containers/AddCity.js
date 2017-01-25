@@ -6,7 +6,6 @@ import InputAndButton from '../components/InputAndButton';
 
 const mapDispatchToProps =  (dispatch) => ({
   onAddCity: (city) =>{
-      console.log('***City', city);
       dispatch(addCity(city));
   }
 })

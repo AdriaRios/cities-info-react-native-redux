@@ -15,7 +15,7 @@ const InputAndButton = ({onAddCity, textValue="as"}) => (
         <Button
             title="Add City"
             style={styles.addCity.button}
-            onPress={() => {
+            onPress={(e) => {
                 onAddCity(cityInput._lastNativeText);
                 cityInput.clear();
             }}
