@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCity } from '../actions'
+import { getCityInfo } from '../actions'
 
 import InputAndButton from '../components/InputAndButton';
 
 const mapDispatchToProps =  (dispatch) => ({
   onAddCity: (city) =>{
-      dispatch(addCity(city));
+      dispatch(getCityInfo(city));
   }
 })
 
