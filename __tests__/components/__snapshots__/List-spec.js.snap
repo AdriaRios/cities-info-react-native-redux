@@ -1,0 +1,37 @@
+exports[`<List /> List component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": 100,
+    }
+  }>
+  <ScrollView
+    dataSource={
+      ListViewDataSource {
+        "items": 1,
+      }
+    }
+    initialListSize={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={1000}
+    onKeyboardDidHide={undefined}
+    onKeyboardDidShow={undefined}
+    onKeyboardWillHide={undefined}
+    onKeyboardWillShow={undefined}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    pageSize={1}
+    removeClippedSubviews={true}
+    renderRow={[Function]}
+    scrollEventThrottle={50}
+    scrollRenderAheadDistance={1000}
+    stickyHeaderIndices={Array []}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail">
+      TERRASSA, BARCELONA
+    </Text>
+  </ScrollView>
+</View>
+`;
