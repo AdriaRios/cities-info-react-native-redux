@@ -5,7 +5,7 @@ import styles from '../styles';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 const List = ({cities}) => (
-    <View style={styles.citiesList}>
+    <View style={{}}>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
             renderRow={(rowData) => <Text>{rowData.city}</Text>}
