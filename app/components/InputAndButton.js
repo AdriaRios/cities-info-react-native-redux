@@ -9,7 +9,7 @@ const InputAndButton = ({onAddCity, textValue="as"}) => (
             <View
                 style={{
                     borderWidth: 1,
-                    marginTop: 400,
+                    marginTop: 0,
                     borderBottomColor: '#CCC',
                     borderColor: 'transparent',
                     flexDirection: 'row',

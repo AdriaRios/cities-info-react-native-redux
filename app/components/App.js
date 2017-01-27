@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import reducer from '../reducers';
 
 import CitiesInfoApp from '../components/CitiesInfoApp';
-const store = createStore(reducer, {cities:[]}, applyMiddleware(thunk));
+const store = createStore(reducer, {cities:[{city:'Terrassa'}, {city:'Terrassa'}]}, applyMiddleware(thunk));
 
 export default class App extends Component {
   render() {

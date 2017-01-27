@@ -6,7 +6,7 @@ import {Image, View, Text, StyleSheet} from 'react-native';
 
 import styles from '../styles';
 
-const background = require("../assets/images/sky.jpg");
+const background = require('../assets/images/sky.jpg');
 
 const CitiesInfoApp = () => (
   <View
