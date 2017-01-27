@@ -12,11 +12,11 @@ export const getCityInfo = (city) => {
                 if(json[0] && json[0].Key){
                     fetch(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${json[0].Key}?apikey=sFMTJmKWAXGp9GcbKcM8tIoXspyeBHMA&language=es`)
                     .then(response => response.json())
-                    .then((json) =>{
-                        return dispatch(addCity(city));
+                    .then((weatherInfo) =>{
+                        return dispatch(addCity({city, weatherInfo}));
                     })
                 }else{
-                    return dispatch(addCity('NOT FOUND CITY'));
+                    return dispatch(addCity('NOT FOUND CITY', {}));
                 }
             })
     }

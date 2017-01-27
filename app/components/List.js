@@ -8,7 +8,7 @@ const List = ({cities}) => (
     <View style={styles.citiesList}>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
-            renderRow={(rowData) => <Text>{rowData}</Text>}
+            renderRow={(rowData) => <Text>{rowData.city}</Text>}
           />
     </View>
 );
