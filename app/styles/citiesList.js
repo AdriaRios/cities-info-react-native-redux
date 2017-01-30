@@ -1,6 +1,6 @@
 export default {
     container: {
-        height: 400
+        height: 300
     },
     row: {
         container: {
