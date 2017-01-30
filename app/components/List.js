@@ -110,44 +110,19 @@ const getWeatherIcon = (weatherInfo) =>{
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 const List = ({cities}) => (
-    <View style={{height:400}}>
+    <View style={styles.citiesList.container}>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
             renderRow={(rowData) =>
                 <View
-                    style={{
-                        borderWidth: 1,
-                        marginTop: 0,
-                        borderBottomColor: '#CCC',
-                        borderColor: 'transparent',
-                        alignItems: 'center',
-                        flexDirection: 'row',
-                        height: 70}}
-                >
-                <Image
-                      source={getWeatherIcon(rowData.weatherInfo)}
-                      style={{marginLeft: 5}}
-                    >
-                </Image>
+                    style={styles.citiesList.row.container}>
+                    <Image
+                          source={getWeatherIcon(rowData.weatherInfo)}
+                          style={styles.citiesList.row.iconImage}>
+                    </Image>
 
-                <Text
-                    style={{
-                        color: '#FFF',
-                        marginLeft: 5,
-                        backgroundColor:'transparent',
-                        width: 100
-                    }}
-                >{rowData.city}
-                </Text>
-
-                <Text
-                    style={{
-                        marginLeft: 140,
-                        color: '#FFF',
-                        backgroundColor:'transparent'
-                    }}
-                >{getTemperature(rowData.weatherInfo)}
-                </Text>
+                    <Text style={styles.citiesList.row.cityText}>{rowData.city}</Text>
+                    <Text style={styles.citiesList.row.temperatureText}>{getTemperature(rowData.weatherInfo)}</Text>
                 </View>
             }
           />
