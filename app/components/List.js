@@ -87,14 +87,24 @@ const weatherIcons = {
     icon44,
 }
 
+const getTemperature = (weatherInfo) =>{
+    let temperature = 0;
+    if (weatherInfo && weatherInfo.DailyForecasts){
+        const max = weatherInfo.DailyForecasts[0].Temperature.Maximum.Value;
+        const min = weatherInfo.DailyForecasts[0].Temperature.Minimum.Value;
+        const tempAverage = (min + max) / 2;
+        const tempToCelsius = (tempAverage - 32) / 1.8;
+
+        temperature = tempToCelsius;
+    }
+    return  `${temperature}º`;
+}
 
 const getWeatherIcon = (weatherInfo) =>{
     let category = 1;
     if (weatherInfo && weatherInfo.DailyForecasts){
         category = weatherInfo.DailyForecasts[0].Day.Icon;
     }
-
-
     return  weatherIcons[`icon${category}`];
 }
 
@@ -135,7 +145,7 @@ const List = ({cities}) => (
                         color: '#FFF',
                         backgroundColor:'transparent'
                     }}
-                >{'17º '}
+                >{getTemperature(rowData.weatherInfo)}
                 </Text>
                 </View>
             }
