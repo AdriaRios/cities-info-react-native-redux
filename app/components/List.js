@@ -95,7 +95,7 @@ const getTemperature = (weatherInfo) =>{
         const tempAverage = (min + max) / 2;
         const tempToCelsius = (tempAverage - 32) / 1.8;
 
-        temperature = tempToCelsius;
+        temperature = Math.trunc(tempToCelsius);
     }
     return  `${temperature}º`;
 }
@@ -134,14 +134,15 @@ const List = ({cities}) => (
                     style={{
                         color: '#FFF',
                         marginLeft: 5,
-                        backgroundColor:'transparent'
+                        backgroundColor:'transparent',
+                        width: 100
                     }}
                 >{rowData.city}
                 </Text>
 
                 <Text
                     style={{
-                        marginLeft: 200,
+                        marginLeft: 140,
                         color: '#FFF',
                         backgroundColor:'transparent'
                     }}
