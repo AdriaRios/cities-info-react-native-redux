@@ -4,60 +4,32 @@ import styles from '../styles';
 
 //TODO: Search if can do if better
 let cityInput;
-const InputAndButton = ({onAddCity, textValue="as"}) => (
+const InputAndButton = ({onAddCity, textValue=""}) => (
         <View>
             <View
-                style={{
-                    borderWidth: 1,
-                    marginTop: 0,
-                    borderBottomColor: '#CCC',
-                    borderColor: 'transparent',
-                    flexDirection: 'row',
-                    height: 75}}
-            >
+                style={styles.addCity.inputText.container}>
                 <TextInput
-                     style={{
-                         flex: 1,
-                         color: '#fff',
-                         fontSize: 20,
-                         marginLeft: 25,
-                         paddingTop: 30
-
-                     }}
+                    style={styles.addCity.inputText.input}
                     placeholder="Type your city here"
                     placeholderTextColor="#FFF"
-
-                     ref={ el => cityInput = el }
+                    ref={ el => cityInput = el }
                 />
             </View>
 
-
             <View
-                style={{
-                    flexDirection: 'row',
-                    height: 75}}
-            >
+                style={styles.addCity.button.container}>
+                <View style={styles.addCity.button.btnContainer}>
+                    <TouchableOpacity
+                        onPress={(e) => {
+                            onAddCity(cityInput._lastNativeText);
+                            cityInput.clear();
+                        }}>
+                      <View style={styles.addCity.button.btnStyle}>
 
-            <View style={{flex:1}}>
-                <TouchableOpacity
-                    onPress={(e) => {
-                        onAddCity(cityInput._lastNativeText);
-                        cityInput.clear();
-                    }}
-                >
-                  <View style={{
-                    backgroundColor: '#FF8000',
-                    paddingVertical: 25,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 10}}>
-
-                    <Text style={{color: '#FFF'}}>GET WEATHER INFO!</Text>
-                  </View>
-                </TouchableOpacity>
-            </View>
-
-
+                        <Text style={styles.addCity.button.txtBtn}>GET WEATHER INFO!</Text>
+                      </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
 

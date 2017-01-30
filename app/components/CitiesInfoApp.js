@@ -10,22 +10,13 @@ const background = require('../assets/images/sky.jpg');
 
 const CitiesInfoApp = () => (
   <View
-    style={styles.appStyle}
-  >
+    style={styles.appStyle.container}>
       <Image
             source={background}
-            style={{
-                flex: 1,
-                paddingTop: 30,
-                width: null,
-                height: null}}
-            resizeMode="cover"
-          >
-              <View style={{
-                backgroundColor: 'transparent',
-                marginTop: 25,
-                marginLeft: 25}}>
-                <Text style={{fontSize: 40, color: '#fff',}}>Weather App</Text>
+            style={styles.appStyle.background}
+            resizeMode="cover">
+              <View style={styles.appStyle.header.container}>
+                <Text style={styles.appStyle.header.text}>Weather App</Text>
               </View>
              <CityList />
             <AddCity />
