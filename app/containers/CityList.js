@@ -5,7 +5,8 @@ import List from '../components/List'
 
 
 const mapStateToProps = (state) =>  ({
-  cities: state.cities
+  cities: state.cities,
+  spinnerState: state.spinnerState
 })
 
 

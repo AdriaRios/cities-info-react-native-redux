@@ -12,7 +12,6 @@ const background = require('../assets/images/sky.jpg');
 const CitiesInfoApp = () => (
   <View
     style={styles.appStyle.container}>
-      <Spinner visible={true}></Spinner>
       <Image
             source={background}
             style={styles.appStyle.background}

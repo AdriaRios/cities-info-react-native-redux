@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react'
 
 import {Image, View, Text, ListView} from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-import assetsManager from '../services/assetsManager'
+import assetsManager from '../services/assetsManager';
 import styles from '../styles';
 
 const getTemperature = (weatherInfo) =>{
@@ -27,8 +28,9 @@ const getWeatherIcon = (weatherInfo) =>{
 }
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-const List = ({cities}) => (
+const List = ({cities, spinnerState}) => (
     <View style={styles.citiesList.container}>
+        <Spinner visible={spinnerState}></Spinner>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
             renderRow={(rowData) =>

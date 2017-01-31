@@ -1,9 +1,7 @@
 const cities = (state = [], action) => {
     switch (action.type) {
       case 'ADD_CITY':
-          return Object.assign({}, state, {
-            cities: [...state.cities, action.city]
-          })
+          return [...state, action.city];
       default:
         return state
     }
