@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import CitiesInfoApp from './CitiesInfoApp';
-import CityDetail from './CityDetail'
+import CityDetail from '../containers/CityDetail'
 
 import {
   BackAndroid,
