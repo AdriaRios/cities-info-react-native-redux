@@ -4,14 +4,14 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
 
-import CitiesInfoApp from '../components/CitiesInfoApp';
+import NavigationRootContainer from '../containers/NavRootContainer';
 const store = createStore(reducer, {cities:[{city:'Terrassa'}, {city:'Terrassa'}]}, applyMiddleware(thunk));
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <CitiesInfoApp />
+        <NavigationRootContainer />
       </Provider>
     );
   }

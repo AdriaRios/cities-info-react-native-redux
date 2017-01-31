@@ -1,13 +1,39 @@
+import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, SET_SPINNER_STATE, OPEN_CITY_DETAIL} from '../constants/ActionTypes'
+
+export function push (route) {
+  return {
+    type: PUSH_ROUTE,
+    route
+  }
+}
+
+export function pop () {
+  return {
+    type: POP_ROUTE
+  }
+}
 
 export const addCity = (city) => ({
-  type: 'ADD_CITY',
+  type: ADD_CITY,
+  city
+})
+
+export const openCityDetail = (city) => ({
+  type: OPEN_CITY_DETAIL,
   city
 })
 
 export const setSpinnerState = (spinnerState) => ({
-  type: 'SET_SPINNER_STATE',
+  type: SET_SPINNER_STATE,
   spinnerState
 })
+
+export const onCitySelected = (city) => {
+    return (dispatch)=>{
+        dispatch(openCityDetail({city}));
+        dispatch(push({'key': 'cityDetail'}));
+    }
+}
 
 export const getCityInfo = (city) => {
     return (dispatch)=>{

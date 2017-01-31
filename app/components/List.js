@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import {Image, View, Text, ListView} from 'react-native';
+import {TouchableOpacity, Image, View, Text, ListView} from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import assetsManager from '../services/assetsManager';
@@ -28,22 +28,27 @@ const getWeatherIcon = (weatherInfo) =>{
 }
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-const List = ({cities, spinnerState}) => (
+const List = ({cities, spinnerState, onCitySelected}) => (
     <View style={styles.citiesList.container}>
         <Spinner visible={spinnerState}></Spinner>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
             renderRow={(rowData) =>
-                <View
-                    style={styles.citiesList.row.container}>
-                    <Image
-                          source={getWeatherIcon(rowData.weatherInfo)}
-                          style={styles.citiesList.row.iconImage}>
-                    </Image>
+                <TouchableOpacity
+                    onPress={(e) => {
+                        onCitySelected(rowData.city);
+                    }}>
+                    <View
+                        style={styles.citiesList.row.container}>
+                        <Image
+                              source={getWeatherIcon(rowData.weatherInfo)}
+                              style={styles.citiesList.row.iconImage}>
+                        </Image>
 
-                    <Text style={styles.citiesList.row.cityText}>{rowData.city}</Text>
-                    <Text style={styles.citiesList.row.temperatureText}>{getTemperature(rowData.weatherInfo)}</Text>
-                </View>
+                        <Text style={styles.citiesList.row.cityText}>{rowData.city}</Text>
+                        <Text style={styles.citiesList.row.temperatureText}>{getTemperature(rowData.weatherInfo)}</Text>
+                    </View>
+                </TouchableOpacity>
             }
           />
     </View>
