@@ -1,11 +1,25 @@
+import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, SET_SPINNER_STATE} from '../constants/ActionTypes'
+
+export function push (route) {
+  return {
+    type: PUSH_ROUTE,
+    route
+  }
+}
+
+export function pop () {
+  return {
+    type: POP_ROUTE
+  }
+}
 
 export const addCity = (city) => ({
-  type: 'ADD_CITY',
+  type: ADD_CITY,
   city
 })
 
 export const setSpinnerState = (spinnerState) => ({
-  type: 'SET_SPINNER_STATE',
+  type: SET_SPINNER_STATE,
   spinnerState
 })
 
