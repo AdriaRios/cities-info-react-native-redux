@@ -1,6 +1,7 @@
 import React from 'react';
 import CityList from '../containers/CityList';
 import AddCity from '../containers/AddCity';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {Image, View, Text, StyleSheet} from 'react-native';
 
@@ -11,6 +12,7 @@ const background = require('../assets/images/sky.jpg');
 const CitiesInfoApp = () => (
   <View
     style={styles.appStyle.container}>
+      <Spinner visible={true}></Spinner>
       <Image
             source={background}
             style={styles.appStyle.background}

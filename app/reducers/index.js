@@ -1,13 +1,10 @@
-const reducer = (state, action) => {
-    switch (action.type) {
-      case 'ADD_CITY':
-          console.log(action.city);
-          return Object.assign({}, state, {
-            cities: [...state.cities, action.city]
-          })
-      default:
-        return state
-    }
-}
+import { combineReducers } from 'redux'
+import cities from './cities'
+import spinnerState from './spinnerState'
 
-export default reducer
+const todoApp = combineReducers({
+  cities,
+  spinnerState
+})
+
+export default todoApp
