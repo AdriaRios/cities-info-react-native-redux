@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import CitiesInfoApp from './CitiesInfoApp'
+import React, { Component } from 'react';
+
+import CitiesInfoApp from './CitiesInfoApp';
+import CityDetail from './CityDetail'
 
 import {
   BackAndroid,
@@ -23,15 +25,13 @@ class NavRoot extends Component {
     BackAndroid.removeEventListener('hardwareBackPress', this._handleBackAction)
   }
   _renderScene (props) {
-      console.log('****props', props);
     const { route } = props.scene
     if (route.key === 'cityList') {
-     return <CitiesInfoApp
-              _handleNavigate={this._handleNavigate.bind(this)} />
+     return <CitiesInfoApp />
+    } else if (route.key === 'cityDetail') {
+     return <CityDetail />
     }
-    // if (route.key === 'about') {
-    //  return <About _goBack={this._handleBackAction.bind(this)} />
-    // }
+
   }
   _handleBackAction () {
     if (this.props.navigation.index === 0) {

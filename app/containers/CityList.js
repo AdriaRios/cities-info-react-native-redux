@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { onCitySelected } from '../actions'
 
-import List from '../components/List'
+import List from '../components/List';
 
 
 const mapStateToProps = (state) =>  ({
@@ -9,7 +10,13 @@ const mapStateToProps = (state) =>  ({
   spinnerState: state.spinnerState
 })
 
+const mapDispatchToProps =  (dispatch) => ({
+  onCitySelected: (city) =>{
+      dispatch(onCitySelected(city));
+  }
+})
 
-const CitiesInfo = connect(mapStateToProps)(List)
 
-export default CitiesInfo
+const CitiesInfo = connect(mapStateToProps, mapDispatchToProps)(List);
+
+export default CitiesInfo;
