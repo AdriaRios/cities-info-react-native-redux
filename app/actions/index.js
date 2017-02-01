@@ -1,4 +1,4 @@
-import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, SET_SPINNER_STATE, OPEN_CITY_DETAIL} from '../constants/ActionTypes'
+import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, SET_SPINNER_STATE, OPEN_CITY_DETAIL, SET_CITY_DETAIL} from '../constants/ActionTypes'
 
 export function push (route) {
   return {
@@ -23,6 +23,11 @@ export const openCityDetail = (city) => ({
   city
 })
 
+export const setSelectedCityDetail = (cityDetail) => ({
+  type: SET_CITY_DETAIL,
+  cityDetail
+})
+
 export const setSpinnerState = (spinnerState) => ({
   type: SET_SPINNER_STATE,
   spinnerState
@@ -30,8 +35,17 @@ export const setSpinnerState = (spinnerState) => ({
 
 export const onCitySelected = (city) => {
     return (dispatch)=>{
-        dispatch(openCityDetail({city}));
-        dispatch(push({'key': 'cityDetail'}));
+        dispatch(setSpinnerState(true));
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=Terrassa&key=AIzaSyCjLJYPW9ebsH5Rps2ofoaHd39TVycnxHk`)
+        .then(response => response.json())
+        .then((json) =>{
+            dispatch(setSelectedCityDetail({'location': json.results[0].geometry.location, 'address': json.results[0].formatted_address}))
+            dispatch(setSpinnerState(false));
+            dispatch(openCityDetail({city}));
+            dispatch(push({'key': 'cityDetail'}));
+        })
+
+
     }
 }
 

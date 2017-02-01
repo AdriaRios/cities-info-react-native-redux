@@ -6,7 +6,9 @@ import CityInfo from '../components/CityInfo';
 
 
 const mapStateToProps = (state) =>  ({
-  selectedCity: state.selectedCity.city
+  selectedCity: state.selectedCity.city,
+  location: state.cityDetail.location,
+  address: state.cityDetail.address
 })
 
 

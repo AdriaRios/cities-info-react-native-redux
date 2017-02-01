@@ -1,8 +1,15 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View, Text} from 'react-native';
 
-const CityInfo = ({selectedCity}) => (
-    <Text>{selectedCity}</Text>
-)
+const CityInfo = ({selectedCity, address, location}) =>{
+    console.log('AAA', selectedCity, address, location);
+    return (
+        <View>
+            <Text>{selectedCity}</Text>
+            <Text>{address}</Text>
+            <Text>{location.lat}</Text>
+        </View>
+    )
+}
 
 export default CityInfo
