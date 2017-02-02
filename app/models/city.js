@@ -11,7 +11,6 @@ class City extends Model {
                 }
             break;
             case ADD_CITY_INFO:
-                console.log('***ac', action);
                 City.withId(action.id).info = action.cityInfoId;
             break;
         }
