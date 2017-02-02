@@ -41,7 +41,6 @@ class NavRoot extends Component {
     return true
   }
   _handleNavigate (action) {
-      console.log('ACTION', action);
     switch (action && action.type) {
       case 'push':
         this.props.pushRoute(action.route)
