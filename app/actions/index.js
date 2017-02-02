@@ -39,6 +39,9 @@ export const setSpinnerState = (spinnerState) => ({
   spinnerState
 })
 
+//TODO This index is to simulate a relationship of city data
+let cityIds = 0;
+
 export const onCitySelected = (city) => {
     return (dispatch)=>{
         dispatch(setSpinnerState(true));
@@ -65,8 +68,8 @@ export const getCityInfo = (city) => {
                     .then((weatherInfo) =>{
                         dispatch(setSpinnerState(false));
                         dispatch(addCity({city}));
-                        console.log('CITY', city);
-                        dispatch(addWeatherInfo(city, weatherInfo));
+                        dispatch(addWeatherInfo(cityIds, weatherInfo));
+                        cityIds++;
                     })
                 }else{
                     dispatch(setSpinnerState(false));

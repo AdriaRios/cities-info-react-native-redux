@@ -22,14 +22,12 @@ export const cities = createSelector(
 export const citiesWeather = createSelector(
     ormSelector,
     ormCreateSelector(orm, session => {
-        // `.toRefArray` returns a new Array that includes
-        // direct references to each User object in the state.
-        let cws = session.CityWeather.all().toRefArray();
-
-        //GET ID's
-        // if (session.City.hasId('Barcelona')){
-        //     let testCity = session.City.withId('Barcelona');
-        // }
+        let cws = [...session.CityWeather.all().toRefArray()];
+        cws.forEach((cityWeather) => {
+            if (session.City.hasId(cityWeather.city)){
+                cityWeather.city = session.City.withId(cityWeather.city).ref.name;
+            }
+        });
         return cws;
     })
 );

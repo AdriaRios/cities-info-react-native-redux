@@ -21,9 +21,9 @@ City.fields = {
     name: attr(),
     attrTest: attr()
 };
-City.options = {
-    idAttribute: 'name',
-};
+// City.options = {
+//     idAttribute: 'name',
+// };
 
 //CITY WEATHER
 class CityWeather extends Model {
