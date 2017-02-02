@@ -1,6 +1,6 @@
 // models.js
 import {fk, many, attr, Model, ORM} from 'redux-orm';
-import {ADD_CITY} from '../constants/ActionTypes';
+import {ADD_CITY, ADD_CITY_WEATHER} from '../constants/ActionTypes';
 
 /********************* SE DEFINEN LOS MODELOS********************/
 
@@ -10,7 +10,7 @@ class City extends Model {
         switch (action.type) {
             case ADD_CITY:
                 if (!City.filter({ name: action.city.city }).exists()) {
-                    City.create({ name: action.city.city });
+                    City.create({ name: action.city.city, attrTest: 'Pepito' });
                 }
                 break;
         }
@@ -18,20 +18,19 @@ class City extends Model {
 }
 City.modelName = 'City';
 City.fields = {
-    name: attr()
+    name: attr(),
+    attrTest: attr()
 };
 City.options = {
-    idAttribute: 'id',
+    idAttribute: 'name',
 };
 
 //CITY WEATHER
 class CityWeather extends Model {
-    static reducer(action, City, session) {
+    static reducer(action, CityWeather, session) {
         switch (action.type) {
-            case ADD_CITY:
-                if (!City.filter({ name: action.city.city }).exists()) {
-                    City.create({ name: action.city.city });
-                }
+            case ADD_CITY_WEATHER:
+                CityWeather.create({ weatherInfo: action.weather, city: action.city });
                 break;
         }
     }

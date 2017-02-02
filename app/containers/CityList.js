@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { onCitySelected } from '../actions'
-import {cities} from '../selectors';
+import {cities, citiesWeather} from '../selectors';
 
 import List from '../components/List';
 
 
 const mapStateToProps = (state) => {
-    console.log('Cities', cities(state));
     return ({
-      cities: cities(state),
+      cities: citiesWeather(state),
       spinnerState: state.spinnerState
     })
 }

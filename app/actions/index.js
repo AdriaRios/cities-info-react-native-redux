@@ -1,4 +1,4 @@
-import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, SET_SPINNER_STATE, OPEN_CITY_DETAIL, SET_CITY_DETAIL} from '../constants/ActionTypes'
+import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, ADD_CITY_WEATHER, SET_SPINNER_STATE, OPEN_CITY_DETAIL, SET_CITY_DETAIL} from '../constants/ActionTypes'
 
 export function push (route) {
   return {
@@ -15,6 +15,12 @@ export function pop () {
 
 export const addCity = (city) => ({
   type: ADD_CITY,
+  city
+})
+
+export const addWeatherInfo = (city, weather) => ({
+  type: ADD_CITY_WEATHER,
+  weather: weather,
   city
 })
 
@@ -44,8 +50,6 @@ export const onCitySelected = (city) => {
             dispatch(openCityDetail({city}));
             dispatch(push({'key': 'cityDetail'}));
         })
-
-
     }
 }
 
@@ -60,7 +64,9 @@ export const getCityInfo = (city) => {
                     .then(response => response.json())
                     .then((weatherInfo) =>{
                         dispatch(setSpinnerState(false));
-                        dispatch(addCity({city, weatherInfo}));
+                        dispatch(addCity({city}));
+                        console.log('CITY', city);
+                        dispatch(addWeatherInfo(city, weatherInfo));
                     })
                 }else{
                     dispatch(setSpinnerState(false));
