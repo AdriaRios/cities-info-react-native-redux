@@ -3,16 +3,14 @@ import { combineReducers } from 'redux';
 import spinnerState from './spinnerState';
 import navigation from './navigation';
 import selectedCity from './selectedCity';
-import cityDetail from './cityDetail';
 import { createReducer } from 'redux-orm';
-import {orm} from '../models/models';
+import {orm} from '../models';
 
 
 const todoApp = combineReducers({
   spinnerState,
   navigation,
   selectedCity,
-  cityDetail,
   orm : createReducer(orm)
 })
 

@@ -1,4 +1,4 @@
-import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, ADD_CITY_WEATHER, SET_SPINNER_STATE, OPEN_CITY_DETAIL, SET_CITY_DETAIL} from '../constants/ActionTypes'
+import { POP_ROUTE, PUSH_ROUTE, ADD_CITY, ADD_CITY_INFO, ADD_CITY_WEATHER, SET_SPINNER_STATE, OPEN_CITY_DETAIL, SET_CITY_DETAIL} from '../constants/ActionTypes'
 
 export function push (route) {
   return {
@@ -18,10 +18,12 @@ export const addCity = (city) => ({
   city
 })
 
-export const addWeatherInfo = (city, weather) => ({
+export const addWeatherInfo = (name, id, cityWeatherId, weather) => ({
   type: ADD_CITY_WEATHER,
   weather: weather,
-  city
+  cityWeatherId,
+  name,
+  id
 })
 
 export const openCityDetail = (city) => ({
@@ -29,9 +31,12 @@ export const openCityDetail = (city) => ({
   city
 })
 
-export const setSelectedCityDetail = (cityDetail) => ({
-  type: SET_CITY_DETAIL,
-  cityDetail
+export const addCityInfo = (cityInfoId, id, location, address) => ({
+  type: ADD_CITY_INFO,
+  cityInfoId,
+  id,
+  location,
+  address
 })
 
 export const setSpinnerState = (spinnerState) => ({
@@ -41,16 +46,20 @@ export const setSpinnerState = (spinnerState) => ({
 
 //TODO This index is to simulate a relationship of city data
 let cityIds = 0;
+let cityWeatherIds = 0;
+let cityInfoIds = 0;
 
 export const onCitySelected = (city) => {
     return (dispatch)=>{
         dispatch(setSpinnerState(true));
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=Terrassa&key=AIzaSyCjLJYPW9ebsH5Rps2ofoaHd39TVycnxHk`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city.name}&key=AIzaSyCjLJYPW9ebsH5Rps2ofoaHd39TVycnxHk`)
         .then(response => response.json())
         .then((json) =>{
-            dispatch(setSelectedCityDetail({'location': json.results[0].geometry.location, 'address': json.results[0].formatted_address}))
+            //dispatch(setSelectedCityDetail({'location': json.results[0].geometry.location, 'address': json.results[0].formatted_address}))
+            dispatch(openCityDetail({city: city.id}));
+            dispatch(addCityInfo(cityInfoIds, city.id, json.results[0].geometry.location, json.results[0].formatted_address));
             dispatch(setSpinnerState(false));
-            dispatch(openCityDetail({city}));
+            cityInfoIds++;
             dispatch(push({'key': 'cityDetail'}));
         })
     }
@@ -67,9 +76,9 @@ export const getCityInfo = (city) => {
                     .then(response => response.json())
                     .then((weatherInfo) =>{
                         dispatch(setSpinnerState(false));
-                        dispatch(addCity({city}));
-                        dispatch(addWeatherInfo(cityIds, weatherInfo));
+                        dispatch(addWeatherInfo(city, cityIds, cityWeatherIds, weatherInfo));
                         cityIds++;
+                        cityWeatherIds++;
                     })
                 }else{
                     dispatch(setSpinnerState(false));

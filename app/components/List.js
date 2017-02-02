@@ -36,17 +36,17 @@ const List = ({cities, spinnerState, onCitySelected}) => (
             renderRow={(rowData) =>
                 <TouchableOpacity
                     onPress={(e) => {
-                        onCitySelected(rowData.city);
+                        onCitySelected({id: rowData.id, name: rowData.name});
                     }}>
                     <View
                         style={styles.citiesList.row.container}>
                         <Image
-                              source={getWeatherIcon(rowData.weatherInfo)}
+                              source={getWeatherIcon(rowData.weather.weatherInfo)}
                               style={styles.citiesList.row.iconImage}>
                         </Image>
 
-                        <Text style={styles.citiesList.row.cityText}>{rowData.city}</Text>
-                        <Text style={styles.citiesList.row.temperatureText}>{getTemperature(rowData.weatherInfo)}</Text>
+                        <Text style={styles.citiesList.row.cityText}>{rowData.name}</Text>
+                        <Text style={styles.citiesList.row.temperatureText}>{getTemperature(rowData.weather.weatherInfo)}</Text>
                     </View>
                 </TouchableOpacity>
             }

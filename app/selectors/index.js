@@ -1,4 +1,4 @@
-import { orm } from '../models/models';
+import { orm } from '../models';
 import { createSelector } from 'reselect';
 import { createSelector as ormCreateSelector } from 'redux-orm';
 
@@ -11,23 +11,23 @@ export const ormSelector = state => state.orm;
 export const cities = createSelector(
     ormSelector,
     ormCreateSelector(orm, session => {
-        // `.toRefArray` returns a new Array that includes
-        // direct references to each User object in the state.
-        return session.City.all().toRefArray().map((city) =>{ return {
-            city: city.name
-        }});
+        let cityArrayModel = [...session.City.all().toModelArray()];
+        cityArrayModel.map(city => {
+            const obj = Object.assign({}, city.ref);
+            obj.weather = city.weather.ref;
+            return obj;
+        });
+        return cityArrayModel
     })
 );
 
-export const citiesWeather = createSelector(
+export const cityDetail = createSelector(
     ormSelector,
-    ormCreateSelector(orm, session => {
-        let cws = [...session.CityWeather.all().toRefArray()];
-        cws.forEach((cityWeather) => {
-            if (session.City.hasId(cityWeather.city)){
-                cityWeather.city = session.City.withId(cityWeather.city).ref.name;
-            }
-        });
-        return cws;
+    state => state.selectedCity.city,
+    ormCreateSelector(orm, (session, selectedCity) => {
+        const city = session.City.withId(selectedCity);
+        const cityInformation = city.info.ref;
+        const cityName = city.name;
+        return {name: cityName, location: cityInformation.location, address: cityInformation.address}
     })
 );
