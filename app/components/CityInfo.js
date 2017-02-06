@@ -5,6 +5,7 @@ import styles from '../styles';
 
 const background = require('../assets/images/sky.jpg');
 const back = require('../assets/images/back.png');
+const fakeMap = require('../assets/images/fakeMap.png');
 
 const CityInfo = ({selectedCity, address, location, onBackButton}) =>{
     return (
@@ -25,15 +26,35 @@ const CityInfo = ({selectedCity, address, location, onBackButton}) =>{
                     </TouchableOpacity>
                     <Text
                         style={styles.cityDetail.header.text}>
-                        {selectedCity} Info</Text>
+                        {selectedCity} Info
+                    </Text>
                 </View>
-                <View>
+                <View
+                    style={styles.cityDetail.body.container}>
                     <View>
-                        <Text>{address}</Text>
+                        <Text
+                            style={styles.cityDetail.body.text}>
+                            City Description: {address}
+                        </Text>
                     </View>
-                    <View>
-                        <Text>{location.lat}</Text>
-                        <Text>{location.lng}</Text>
+                    <View
+                        style={styles.cityDetail.body.location}>
+                        <Text
+                            style={styles.cityDetail.body.text}>
+                            Latitude: {location.lat}
+                        </Text>
+                        <Text
+                            style={styles.cityDetail.body.text}>
+                            Longitude: {location.lng}
+                        </Text>
+                            <View
+                                style={styles.cityDetail.body.mapView}>
+                                <Image
+                                    source={fakeMap}
+                                    style={styles.cityDetail.body.map}>
+                                </Image>
+                            </View>
+
                     </View>
                 </View>
             </Image>

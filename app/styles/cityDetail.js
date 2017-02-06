@@ -1,3 +1,6 @@
+import {Dimensions} from 'react-native';
+const window = Dimensions.get('window');
+
 export default {
     container: {
         flex: 1,
@@ -13,7 +16,7 @@ export default {
     //HEADER
     header: {
         container: {
-            flex: 1,
+            flex: 2,
             flexDirection: 'row',
             backgroundColor: 'transparent',
             marginTop: 25,
@@ -32,4 +35,32 @@ export default {
             color: '#fff'
         }
     },
+
+    //BODY
+    body: {
+        text: {
+            fontSize: 20,
+            marginLeft: 25,
+            color: '#fff'
+        },
+        container : {
+            flex: 8,
+        },
+
+        location: {
+            marginTop: 20
+        },
+
+        mapView: {
+            flex: 1,
+            alignItems: 'center'
+        },
+        map: {
+            marginTop: 15,
+            width : window.width * 0.9,
+            height : window.height * 0.58
+        }
+
+    }
+
 };
