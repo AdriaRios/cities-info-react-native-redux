@@ -28,6 +28,7 @@ export const cityDetail = createSelector(
         const city = session.City.withId(selectedCity);
         const cityInformation = city.info.ref;
         const cityName = city.name;
+        console.log('********LOCATION', cityInformation.location);
         return {name: cityName, location: cityInformation.location, address: cityInformation.address}
     })
 );

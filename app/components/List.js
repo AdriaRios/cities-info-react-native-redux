@@ -33,6 +33,7 @@ const List = ({cities, spinnerState, onCitySelected}) => (
         <Spinner visible={spinnerState}></Spinner>
         <ListView
             dataSource={ds.cloneWithRows(cities)}
+            enableEmptySections={true}
             renderRow={(rowData) =>
                 <TouchableOpacity
                     onPress={(e) => {
