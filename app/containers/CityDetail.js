@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { onCitySelected } from '../actions'
+import { pop } from '../actions'
 import {cityDetail} from '../selectors';
 
 import CityInfo from '../components/CityInfo';
@@ -15,6 +15,14 @@ const mapStateToProps = (state) => {
     })
 }
 
-const CitiesInfo = connect(mapStateToProps)(CityInfo);
+const mapDispatchToProps =  (dispatch) => {
+    return ({
+      onBackButton: (city) =>{
+          dispatch(pop());
+      }
+    })
+}
+
+const CitiesInfo = connect(mapStateToProps, mapDispatchToProps)(CityInfo);
 
 export default CitiesInfo;

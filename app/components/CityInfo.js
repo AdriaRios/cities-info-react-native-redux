@@ -6,7 +6,7 @@ import styles from '../styles';
 const background = require('../assets/images/sky.jpg');
 const back = require('../assets/images/back.png');
 
-const CityInfo = ({selectedCity, address, location}) =>{
+const CityInfo = ({selectedCity, address, location, onBackButton}) =>{
     return (
         <View style={styles.cityDetail.container}>
             <Image
@@ -14,11 +14,14 @@ const CityInfo = ({selectedCity, address, location}) =>{
                 style={styles.cityDetail.background}>
                 <View
                     style={styles.cityDetail.header.container}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => {
+                            onBackButton();
+                        }}>
                         <Image
                             source={back}
-                            style={styles.cityDetail.header.backBtn.image}
-                        ></Image>
+                            style={styles.cityDetail.header.backBtn.image}>
+                        </Image>
                     </TouchableOpacity>
                     <Text
                         style={styles.cityDetail.header.text}>
