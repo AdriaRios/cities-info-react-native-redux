@@ -5,7 +5,7 @@ export default {
 
     background: {
         flex: 1,
-        paddingTop: 30,
+        //paddingTop: 30,
         width: null,
         height: null
     },
@@ -13,6 +13,7 @@ export default {
     //HEADER
     header: {
         container: {
+            flex: 1,
             backgroundColor: 'transparent',
             marginTop: 25,
             marginLeft: 25

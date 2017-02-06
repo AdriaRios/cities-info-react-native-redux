@@ -1,4 +1,7 @@
 export default {
+    mainContainer: {
+        flex: 2
+    },
     inputText:{
         container: {
             borderWidth: 1,
@@ -6,7 +9,7 @@ export default {
             borderBottomColor: '#CCC',
             borderColor: 'transparent',
             flexDirection: 'row',
-            height: 75
+            flex: 1,
         },
         input: {
             flex: 1,
@@ -19,7 +22,7 @@ export default {
     button: {
         container: {
             flexDirection: 'row',
-            height: 75
+            flex: 1,
         },
         btnContainer: {
             flex:1

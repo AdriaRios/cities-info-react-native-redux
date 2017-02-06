@@ -5,7 +5,7 @@ import styles from '../styles';
 //TODO: Search if can do if better
 let cityInput;
 const InputAndButton = ({onAddCity, textValue=""}) => (
-        <View>
+        <View style={styles.addCity.mainContainer}>
             <View
                 style={styles.addCity.inputText.container}>
                 <TextInput
