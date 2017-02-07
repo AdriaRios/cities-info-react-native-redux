@@ -8,15 +8,32 @@ import List from '../../app/components/List';
 import renderer from 'react-test-renderer';
 
 describe('<List />', () => {
+    const citiesData = [
+        {
+            id: 0,
+            name: 'Terrassa',
+            weather: {
+            weatherInfo: {}
+          }
+          },
+          {
+              id: 0,
+              name: 'Barcelona',
+              weather: {
+              weatherInfo: {}
+            }
+      }
+    ];
+
     it('List component renders correctly', () => {
       const tree = renderer.create(
-        <List cities={['TERRASSA, BARCELONA']}/>
+        <List cities={citiesData}/>
       );
       const json = tree.toJSON();
       expect(json).toMatchSnapshot();
     });
 
-    const wrapper = shallow(<List cities={['TERRASSA, BARCELONA']}/>);
+    const wrapper = shallow(<List cities={citiesData}/>);
 
     it('Should exists', () => {
         expect(wrapper.length).toEqual(1);

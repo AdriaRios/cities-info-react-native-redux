@@ -2,66 +2,88 @@ exports[`<InputAndButton /> Input and Button component renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
-      "flexDirection": "row",
-      "justifyContent": "center",
+      "flex": 2,
     }
   }>
-  <TextInput
-    style={
-      Object {
-        "borderColor": "grey",
-        "borderWidth": 0.5,
-        "height": 20,
-        "marginTop": 10,
-        "width": 100,
-      }
-    } />
   <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "opacity": 1,
+        "borderBottomColor": "#CCC",
+        "borderColor": "transparent",
+        "borderWidth": 1,
+        "flex": 1,
+        "flexDirection": "row",
+        "marginTop": 0,
       }
-    }
-    testID={undefined}>
+    }>
+    <TextInput
+      placeholder="Type your city here"
+      placeholderTextColor="#FFF"
+      style={
+        Object {
+          "color": "#fff",
+          "flex": 1,
+          "fontSize": 20,
+          "marginLeft": 25,
+          "paddingTop": 30,
+        }
+      } />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }>
     <View
       style={
-        Array [
-          Object {},
-        ]
+        Object {
+          "flex": 1,
+        }
       }>
-      <Text
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
         accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
+        hitSlop={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID={undefined}>
+        <View
+          style={
             Object {
-              "color": "#0C42FD",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }>
-        Add City
-      </Text>
+              "alignItems": "center",
+              "backgroundColor": "#FF8000",
+              "justifyContent": "center",
+              "marginTop": 10,
+              "paddingVertical": 25,
+            }
+          }>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#FFF",
+              }
+            }>
+            GET WEATHER INFO!
+          </Text>
+        </View>
+      </View>
     </View>
   </View>
 </View>

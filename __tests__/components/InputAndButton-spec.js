@@ -20,12 +20,4 @@ describe('<InputAndButton />', () => {
     it('Should exists', () => {
         expect(wrapper.length).toEqual(1);
     });
-
-    it('Should Have One TextInput', () => {
-        expect(wrapper.find(TextInput)).toHaveLength(1);
-    });
-
-    it('Should Have One Button', () => {
-        expect(wrapper.find(Button)).toHaveLength(1);
-    });
 });
