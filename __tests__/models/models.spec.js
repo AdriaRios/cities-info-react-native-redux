@@ -6,16 +6,16 @@ import {ReduxORMAdapter } from './adapter/ReduxORMAdapter';
 
 describe('ReduxORM models', () => {
     let session;
-    beforeEach(done => {
+    beforeAll(done => {
         session = orm.session();
         factory.setAdapter(new ReduxORMAdapter(session));
-
         Promise.all([factory.createMany('CityWeather', 2), factory.createMany('CityInfo', 2)]).then(()=>{
             const totalCities = session.CityWeather.all().toRefArray().length;
-
             session.CityWeather.all().toRefArray().map(weather => {
+
                 const weatherID = weather.id;
                 factory.create('City', { weather: weatherID, info: weatherID }).then(() => {
+                    done();
                     if(weatherID === totalCities -1 ){
                         done();
                     }
@@ -24,11 +24,14 @@ describe('ReduxORM models', () => {
         })
     });
 
-    it('Should launch Spinner and addWeather Info when SUCCESS REQUEST', ()=>{
-        console.log('*********CITY', session.City.all().toRefArray());
-        console.log('*********CITY Weather', session.CityWeather.all().toRefArray());
-        console.log('*********CITY Info', session.CityInfo.all().toRefArray());
-        expect(1).toEqual(1);
+    it('Should have two cities', ()=>{
+        expect(session.City.count()).toEqual(2);
+    })
+    it('Should have two cities weather', ()=>{
+        expect(session.CityWeather.count()).toEqual(2);
+    })
+    it('Should have two cities info', ()=>{
+        expect(session.CityInfo.count()).toEqual(2);
     })
 
 })
