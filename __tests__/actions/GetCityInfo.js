@@ -13,15 +13,6 @@ describe('Get City Info Action', () => {
     afterEach(() => {
         nock.cleanAll();
     })
-    // it('Should change Spinner State to true when launch action', ()=>{
-    //     const expectedActions = [
-    //         { type: SET_SPINNER_STATE, spinnerState: true }
-    //     ]
-    //
-    //     const store = mockStore({});
-    //     store.dispatch(getCityInfo());
-    //     expect(store.getActions()).toEqual(expectedActions);
-    // })
 
     it('Should launch Spinner and addWeather Info when SUCCESS REQUEST', ()=>{
         //Catched Request

@@ -24,6 +24,7 @@
     "babel-preset-react-native": "1.9.1",
     "babel-preset-stage-2": "^6.22.0",
     "enzyme": "^2.7.1",
+    "factory-girl": "^4.1.0",
     "jest": "18.1.0",
     "react-native-mock": "^0.2.9",
     "react-test-renderer": "15.4.2",
