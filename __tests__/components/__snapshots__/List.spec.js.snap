@@ -1,0 +1,167 @@
+exports[`<List /> List component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 5,
+    }
+  }>
+  <View />
+  <ScrollView
+    dataSource={
+      ListViewDataSource {
+        "items": 2,
+      }
+    }
+    enableEmptySections={true}
+    initialListSize={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={1000}
+    onKeyboardDidHide={undefined}
+    onKeyboardDidShow={undefined}
+    onKeyboardWillHide={undefined}
+    onKeyboardWillShow={undefined}
+    onLayout={[Function]}
+    onScroll={[Function]}
+    pageSize={1}
+    removeClippedSubviews={true}
+    renderRow={[Function]}
+    scrollEventThrottle={50}
+    scrollRenderAheadDistance={1000}
+    stickyHeaderIndices={Array []}>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomColor": "#CCC",
+            "borderColor": "transparent",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 70,
+            "marginTop": 0,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "marginLeft": 5,
+            }
+          } />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#FFF",
+              "marginLeft": 5,
+              "width": 100,
+            }
+          }>
+          Terrassa
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#FFF",
+              "marginLeft": 140,
+            }
+          }>
+          0º
+        </Text>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hitSlop={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomColor": "#CCC",
+            "borderColor": "transparent",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 70,
+            "marginTop": 0,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "marginLeft": 5,
+            }
+          } />
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#FFF",
+              "marginLeft": 5,
+              "width": 100,
+            }
+          }>
+          Barcelona
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "color": "#FFF",
+              "marginLeft": 140,
+            }
+          }>
+          0º
+        </Text>
+      </View>
+    </View>
+  </ScrollView>
+</View>
+`;

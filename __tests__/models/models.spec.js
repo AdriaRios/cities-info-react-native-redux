@@ -1,6 +1,6 @@
 import { orm } from '../../app/models';
-import factory from './factories/factories';
-import {ReduxORMAdapter } from './adapter/ReduxORMAdapter';
+import factory from '../utils/factories/factories';
+import {ReduxORMAdapter } from '../utils/adapter/ReduxORMAdapter';
 
 
 
