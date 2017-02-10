@@ -15,7 +15,6 @@ describe('ReduxORM models', () => {
 
                 const weatherID = weather.id;
                 factory.create('City', { weather: weatherID, info: weatherID }).then(() => {
-                    done();
                     if(weatherID === totalCities -1 ){
                         done();
                     }
