@@ -7,21 +7,21 @@ import CityInfo from '../components/CityInfo';
 
 
 const mapStateToProps = (state) => {
-    const cityDetailInfo = cityDetail(state);
-    return ({
-      selectedCity: cityDetailInfo.name,
-      location: cityDetailInfo.location,
-      address: cityDetailInfo.address
-    })
-}
+  const cityDetailInfo = cityDetail(state);
+  return ({
+    selectedCity: cityDetailInfo.name,
+    location: cityDetailInfo.location,
+    address: cityDetailInfo.address,
+  });
+};
 
-const mapDispatchToProps =  (dispatch) => {
-    return ({
-      onBackButton: (city) =>{
-          dispatch(pop());
-      }
-    })
-}
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    onBackButton: () => {
+      dispatch(pop());
+    },
+  });
+};
 
 const CitiesInfo = connect(mapStateToProps, mapDispatchToProps)(CityInfo);
 

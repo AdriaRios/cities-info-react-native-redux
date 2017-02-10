@@ -1,14 +1,13 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { getCityInfo } from '../actions'
+import { getCityInfo } from '../actions';
 
 import InputAndButton from '../components/InputAndButton';
 
-const mapDispatchToProps =  (dispatch) => ({
-  onAddCity: (city) =>{
-      dispatch(getCityInfo(city));
-  }
-})
+const mapDispatchToProps = dispatch => ({
+  onAddCity: (city) => {
+    dispatch(getCityInfo(city));
+  },
+});
 
 const AddCity = connect(null, mapDispatchToProps)(InputAndButton);
 

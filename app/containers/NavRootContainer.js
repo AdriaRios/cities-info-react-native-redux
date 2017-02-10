@@ -1,16 +1,17 @@
-import { connect } from 'react-redux'
-import NavigationRoot from '../components/NavRoot'
-import { push, pop } from '../actions'
-function mapStateToProps (state) {
+import { connect } from 'react-redux';
+import NavigationRoot from '../components/NavRoot';
+import { push, pop } from '../actions';
+
+function mapStateToProps(state) {
   return {
-    navigation: state.navigation
-   }
+    navigation: state.navigation,
+  };
 }
 
 export default connect(
   mapStateToProps,
-   {
-     pushRoute: (route) => push(route),
-     popRoute: () => pop()
-   }
-)(NavigationRoot)
+  {
+    pushRoute: route => push(route),
+    popRoute: () => pop(),
+  },
+)(NavigationRoot);
