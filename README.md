@@ -31,7 +31,36 @@ In the **CitiesList** scene the user can add a new City to the list of cities. T
 
 In the **CityDetail** scene the user can get some city location info. The location info is getting from [GoogleMaps API](https://developers.google.com/maps/documentation/javascript/)
 
+Using [Redux](https://github.com/reactjs/react-redux), [redux-thunk](https://github.com/gaearon/redux-thunk) for async calls and [redux-orm](https://github.com/tommikaikkonen/redux-orm) to manage relational data,  the state of the application is **testable** with [Jest](https://facebook.github.io/jest/), which includes [Snapshot tests]
+
 ### Summary
 
-## Technologies
+1. Using **React Native**, the application runs on **both iOS and Android** with a **single code** base.
+1. A User can get location and weather info of a given city thanks to **AccuWeather** and **GoogleMaps**
+1. **Redux-thunk** is used to make async calls.
+1. The Forms display **spinner** when fetching.
+1. **All state changes** are actions to the Redux store.
+1. **Every action** performed by the UI interfaces with the **Redux actions** and subsequently to the Redux Store.  This **reduces the complexity** of the JSX Components **tremendously**and makes them easily testable.
+1. Relational data are manager by **redux-orm**
+1. **Jest Unit Tests cover** the application.
+
+## Main Technologies
+
+### [React-Native](https://facebook.github.io/react-native/)
+*React Native enables you to build world-class application experiences on native platforms using a consistent developer experience based on JavaScript and React.*
+
+What more can I say?  It's a fantastic leap forward in providing the ability to write native applications with Javascript that target both iOS and Android.
+
+This application provides one code base that works on both platforms.  It demonstrates Form interactions,  Navigation, and use of many other components.
+
+###[Jest](https://facebook.github.io/jest/)
+*85 Unit tests that cover plain objects and JSX components*
+
+The de-facto standard for React/Native testing.  This app demonstrates how to mock **ReactNative, node_modules, classes** and to properly **test JSX components** by programmatically changing the props, and throughly **test the applications data state and the actions** in conjunction with Redux.
+
+
+###[Redux](http://redux.js.org/)
+*Redux is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.*
+
+Before Redux, application state was managed by all the various components in the app.  Now, the state is managed in a **predictable and consistent manner** and it can be **tested with Jest** and best of all, it is **independent** of the UI.  This is a major advancement in application design!
 
