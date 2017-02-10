@@ -10,12 +10,12 @@ import renderer from 'react-test-renderer';
 describe('<InputAndButton />', () => {
     it('Input and Button component renders correctly', () => {
       const tree = renderer.create(
-        <InputAndButton />
+        <InputAndButton onAddCity = {()=>{}} />
       );
       const json = tree.toJSON();
       expect(json).toMatchSnapshot();
     });
-    const wrapper = shallow(<InputAndButton/>);
+    const wrapper = shallow(<InputAndButton onAddCity = {()=>{}} />);
 
     it('Should exists', () => {
         expect(wrapper.length).toEqual(1);

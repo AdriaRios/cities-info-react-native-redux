@@ -2,7 +2,7 @@ import {fk, attr, Model} from 'redux-orm';
 import {ADD_CITY_WEATHER, ADD_CITY_INFO} from '../constants/ActionTypes';
 
 class City extends Model {
-    static reducer(action, City, session) {
+    static  reducer(action, City, session) {
         switch (action.type) {
             case ADD_CITY_WEATHER:
                 if (!City.filter({ name: action.name }).exists()) {

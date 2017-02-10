@@ -27,13 +27,13 @@ describe('<List />', () => {
 
     it('List component renders correctly', () => {
       const tree = renderer.create(
-        <List cities={citiesData}/>
+        <List cities={citiesData} spinnerState={true} onCitySelected={()=>{}}/>
       );
       const json = tree.toJSON();
       expect(json).toMatchSnapshot();
     });
 
-    const wrapper = shallow(<List cities={citiesData}/>);
+    const wrapper = shallow(<List cities={citiesData} spinnerState={true} onCitySelected={()=>{}}/>);
 
     it('Should exists', () => {
         expect(wrapper.length).toEqual(1);
