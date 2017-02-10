@@ -54,7 +54,7 @@ What more can I say?  It's a fantastic leap forward in providing the ability to 
 This application provides one code base that works on both platforms.  It demonstrates Form interactions,  Navigation, and use of many other components.
 
 ###[Jest](https://facebook.github.io/jest/)
-*85 Unit tests that cover plain objects and JSX components*
+*Unit tests that cover plain objects and JSX components*
 
 The de-facto standard for React/Native testing.  This app demonstrates how to mock **ReactNative, node_modules, classes** and to properly **test JSX components** by programmatically changing the props, and throughly **test the applications data state and the actions** in conjunction with Redux.
 
