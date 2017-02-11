@@ -10,6 +10,9 @@ A React-Native + Redux mobile app. It includes also libraries like Redux-Thunk o
 ![redux-thun](https://img.shields.io/badge/redux%20ORM--yellowgreen.svg)
 ![jest](https://img.shields.io/badge/Jest%20--green.svg)
 
+![Imgur](http://i.imgur.com/GvEW4qn.gif)
+![Imgur](http://i.imgur.com/Cx1QOJ6.gif)
+
 ## Installation
 
 * [Install React-Native](https://facebook.github.io/react-native/docs/getting-started.html#content)
